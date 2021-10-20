@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class Global {
   static Global? _instance;
@@ -22,7 +23,10 @@ class Global {
     );
 
     dio.interceptors.add(InterceptorsWrapper(
-      onRequest: (options, handler) {},
+      onRequest: (options, handler) {
+        EasyLoading.show(status: "Loading......");
+        return handler.next(options); //continue
+      },
       onResponse: (options, handler) {},
       onError: (options, handler) {},
     ));

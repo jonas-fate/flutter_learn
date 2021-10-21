@@ -32,6 +32,8 @@ dependencies:
   dio: ^4.0.0
   # 提示框
   flutter_easyloading: ^3.0.0
+  # 屏幕适配
+  flutter_screenutil: ^5.0.0+2
 
 dev_dependencies:
   flutter_test:

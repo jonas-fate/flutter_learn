@@ -27,8 +27,21 @@ class Global {
         EasyLoading.show(status: "Loading......");
         return handler.next(options); //continue
       },
-      onResponse: (options, handler) {},
-      onError: (options, handler) {},
+      onResponse: (response, handler) {
+        EasyLoading.dismiss();
+        return handler.next(response); //continue
+      },
+      onError: (error, handler) {
+        print(error.toString());
+        EasyLoading.dismiss();
+        String msg = "";
+        if (error.type == DioErrorType.connectTimeout) {
+          msg = "连接超时错误";
+        } else {
+          msg = "接口错误";
+        }
+        EasyLoading.showError(msg);
+      },
     ));
   }
 }

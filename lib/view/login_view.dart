@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learn/utils/rsa/rsa_utils.dart';
 
 class LoginView extends StatefulWidget {
   LoginView({Key? key}) : super(key: key);
@@ -8,6 +9,17 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  @override
+  void initState() {
+    super.initState();
+    test();
+  }
+
+  void test() async {
+    Future<String> result = encodeString("123456");
+    print(result);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

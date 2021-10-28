@@ -16,8 +16,12 @@ class _LoginViewState extends State<LoginView> {
   }
 
   void test() async {
-    Future<String> result = encodeString("123456");
+    String result = await EncryptUtil.encodeString("000000");
+    print('------------------');
     print(result);
+
+    String eStr = await EncryptUtil.decodeString(result);
+    print("----- " + eStr);
   }
 
   @override

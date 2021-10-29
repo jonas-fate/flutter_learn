@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_learn/global/global.dart';
-import 'package:flutter_learn/routes/route.dart';
+import 'package:flutter_learn/routes/routes.dart';
+import 'package:flutter_learn/view/login_view.dart';
+import 'package:flutter_learn/viewmodel/login_viewmodel.dart';
 import 'package:jpush_flutter/jpush_flutter.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => LoginViewModel()),
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
